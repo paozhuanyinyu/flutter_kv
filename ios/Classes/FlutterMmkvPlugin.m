@@ -4,7 +4,7 @@
 @implementation FlutterMmkvPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
   FlutterMethodChannel* channel = [FlutterMethodChannel
-      methodChannelWithName:@"caixin.com/flutter_mmkv"
+      methodChannelWithName:@"caixin.com/flutter_kv"
             binaryMessenger:[registrar messenger]];
   FlutterMmkvPlugin* instance = [[FlutterMmkvPlugin alloc] initMMKV];
   [registrar addMethodCallDelegate:instance channel:channel];
@@ -97,7 +97,14 @@ MMKV *mmkv;
       }
       result(resultStringValue);
   }
-    
+  else if([@"remove" isEqualToString:method]){
+      [[self getMMKV] removeValueForKey:key];
+      result(@YES);
+  }
+  else if([@"containsKey" isEqualToString:method]){
+      BOOL resultValue = [[self getMMKV] containsKey:key];
+      result(@(resultValue));
+  }
   else if ([@"getPlatformVersion" isEqualToString:call.method]) {
     result([@"iOS " stringByAppendingString:[[UIDevice currentDevice] systemVersion]]);
   } else {

@@ -1,6 +1,6 @@
-# flutter_mmkv
+# flutter_kv
 
-A new flutter plugin project.
+A Flutter plugin to use MMKV which is an efficient, small mobile key-value storage framework developed by WeChat.
 
 ## Getting Started
 

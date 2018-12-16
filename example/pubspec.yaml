@@ -1,5 +1,5 @@
-name: flutter_mmkv_example
-description: Demonstrates how to use the flutter_mmkv plugin.
+name: flutter_kv_example
+description: Demonstrates how to use the flutter_kv plugin.
 publish_to: 'none'
 
 environment:
@@ -17,7 +17,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_mmkv:
+  flutter_kv:
     path: ../
 
 # For information on the generic Dart part of this file, see the

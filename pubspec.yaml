@@ -1,8 +1,8 @@
-name: flutter_mmkv
+name: flutter_kv
 description: A new flutter plugin project.
-version: 0.0.1
+version: 0.0.2
 author: Kevien<renruqizi@gmail.com>
-homepage: https://paozhuanyinyu.github.io
+homepage: https://github.com/paozhuanyinyu/flutter_kv
 
 environment:
   sdk: ">=2.0.0-dev.68.0 <3.0.0"

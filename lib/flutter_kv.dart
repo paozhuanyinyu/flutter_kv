@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 
-class FlutterMmkv {
+class FlutterKV {
   static const MethodChannel _channel =
-      const MethodChannel('caixin.com/flutter_mmkv');
+      const MethodChannel('caixin.com/flutter_kv');
 
   static Future<String> get platformVersion async {
     final String version = await _channel.invokeMethod('getPlatformVersion');
@@ -51,7 +51,8 @@ class FlutterMmkv {
 
 
 
-  static Future<int> decodeInt(String key,int defaultValue) async{
+
+  static Future<int> decodeInt(String key,[int defaultValue = 0]) async{
     var argument = {
       'key': key,
       'value': defaultValue
@@ -59,7 +60,7 @@ class FlutterMmkv {
     return await _channel.invokeMethod('decode#int',argument);
   }
 
-  static Future<bool> decodeBool(String key,bool defaultValue) async{
+  static Future<bool> decodeBool(String key,[bool defaultValue = false]) async{
     var argument = {
       'key': key,
       'value': defaultValue
@@ -67,25 +68,41 @@ class FlutterMmkv {
     return await _channel.invokeMethod('decode#bool',argument);
   }
 
-  static Future<int> decodeLong(String key) async{
+  static Future<int> decodeLong(String key,[int value = 0]) async{
     var argument = {
       'key': key,
+      'value': value
     };
     return await _channel.invokeMethod('decode#long',argument);
   }
 
-  static Future<double> decodeDouble(String key,double defaultValue) async{
+  static Future<double> decodeDouble(String key,[double defaultValue = 0]) async{
     var argument = {
       'key': key,
       'value': defaultValue
     };
     return await _channel.invokeMethod('decode#double',argument);
   }
-  static Future<String> decodeString(String key,String defaultValue) async{
+  static Future<String> decodeString(String key,[String defaultValue = ""]) async{
     var argument = {
       'key': key,
       'value': defaultValue
     };
     return await _channel.invokeMethod('decode#string',argument);
+  }
+
+
+  static Future<bool> remove(String key) async{
+    var argument = {
+      'key': key,
+    };
+    return await _channel.invokeMethod('remove',argument);
+  }
+
+  static Future<bool> containsKey(String key) async{
+    var argument = {
+      'key': key,
+    };
+    return await _channel.invokeMethod('containsKey',argument);
   }
 }

@@ -1,7 +1,13 @@
 package com.caixin.fluttermmkv;
 
+import android.util.Log;
+
 import com.tencent.mmkv.MMKV;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Map;
 import java.util.Set;
 
 import io.flutter.plugin.common.MethodCall;
@@ -28,7 +34,7 @@ public class FlutterMmkvPlugin implements MethodCallHandler {
 
   /** Plugin registration. */
   public static void registerWith(Registrar registrar) {
-    final MethodChannel channel = new MethodChannel(registrar.messenger(), "caixin.com/flutter_mmkv");
+    final MethodChannel channel = new MethodChannel(registrar.messenger(), "caixin.com/flutter_kv");
     channel.setMethodCallHandler(new FlutterMmkvPlugin(channel,registrar));
   }
 
@@ -68,13 +74,24 @@ public class FlutterMmkvPlugin implements MethodCallHandler {
         result.success(initMMKV().decodeBool(key,(boolean)object));
         break;
       case "decode#long":
-        result.success(initMMKV().decodeLong(key));
+        //int不能强转long, 会抛类型转换异常;所以使用Integer和Long的父类Number中转一下
+        Number number = (Number) object;
+        result.success(initMMKV().decodeLong(key, number.longValue()));
         break;
       case "decode#double":
         result.success(initMMKV().decodeDouble(key,(double)object));
         break;
       case "decode#string":
         result.success(initMMKV().decodeString(key,(String)object));
+        break;
+
+
+      case "remove":
+        initMMKV().removeValueForKey(key);
+        result.success(true);
+        break;
+      case "containsKey":
+        result.success(initMMKV().contains(key));
         break;
       case "getPlatformVersion":
         result.success("Android " + android.os.Build.VERSION.RELEASE);
