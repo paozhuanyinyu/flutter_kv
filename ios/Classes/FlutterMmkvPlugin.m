@@ -1,5 +1,4 @@
 #import "FlutterMmkvPlugin.h"
-#import <MMKV/MMKV.h>
 
 @implementation FlutterMmkvPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
