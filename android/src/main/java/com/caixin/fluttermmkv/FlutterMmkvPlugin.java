@@ -1,15 +1,6 @@
 package com.caixin.fluttermmkv;
 
-import android.util.Log;
-
 import com.tencent.mmkv.MMKV;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.Map;
-import java.util.Set;
-
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
@@ -34,7 +25,7 @@ public class FlutterMmkvPlugin implements MethodCallHandler {
 
   /** Plugin registration. */
   public static void registerWith(Registrar registrar) {
-    final MethodChannel channel = new MethodChannel(registrar.messenger(), "caixin.com/flutter_kv");
+    final MethodChannel channel = new MethodChannel(registrar.messenger(), "kaige.com/flutter_kv");
     channel.setMethodCallHandler(new FlutterMmkvPlugin(channel,registrar));
   }
 

@@ -3,7 +3,7 @@
 @implementation FlutterMmkvPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
   FlutterMethodChannel* channel = [FlutterMethodChannel
-      methodChannelWithName:@"caixin.com/flutter_kv"
+      methodChannelWithName:@"kaige.com/flutter_kv"
             binaryMessenger:[registrar messenger]];
   FlutterMmkvPlugin* instance = [[FlutterMmkvPlugin alloc] initMMKV];
   [registrar addMethodCallDelegate:instance channel:channel];

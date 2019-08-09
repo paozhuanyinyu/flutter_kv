@@ -32,6 +32,6 @@ android {
         disable 'InvalidPackage'
     }
     dependencies{
-        implementation 'com.tencent:mmkv:1.0.15'
+        implementation 'com.tencent:mmkv:1.0.22'
     }
 }

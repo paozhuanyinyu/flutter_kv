@@ -45,9 +45,9 @@ class _MyHomePageState extends State<MyHomePage> {
     print("取出刚才存的long int类型值： ${await FlutterKV.decodeLong("long",1)}");
 
     print("存一个double类型的92233720369292.92: ${await FlutterKV.encodeDouble("double", 92233720369292.92)}");
-    print("取出刚才存的double类型值： ${await FlutterKV.decodeDouble("doubledouble", 1)}");
+    print("取出刚才存的double类型值： ${await FlutterKV.decodeDouble("double", 1)}");
 
-    print("存一个String类型的true: ${await FlutterKV.encodeString("string", "Flutter MMKV")}");
+    print("存一个String类型的Flutter MMKV: ${await FlutterKV.encodeString("string", "Flutter MMKV")}");
     print("取出刚才存的String类型值： ${await FlutterKV.decodeString("string", "error")}");
 
     print("删除key为string的值: ${await FlutterKV.remove("string")}");

@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 
 class FlutterKV {
   static const MethodChannel _channel =
-      const MethodChannel('caixin.com/flutter_kv');
+      const MethodChannel('kaige.com/flutter_kv');
 
   static Future<String> get platformVersion async {
     final String version = await _channel.invokeMethod('getPlatformVersion');
